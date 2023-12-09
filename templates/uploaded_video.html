@@ -1,0 +1,83 @@
+{% extends "layout.html" %} {% block body %}
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="container-fluid" style="width: 50rem; padding-right: 50px;">
+				<div class="p-4 pt-5" >
+		  		<a href="/" class="img logo rounded-circle mb-5 align-items-center" style="width: 200px; height: 200px; background-image: url(../static/images/logo\(1\).png);"></a>
+	        <ul class="list-unstyled components mb-5" style="width: 220px;">
+	          <li>
+	            <a href="#changeImage" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Change Image / Video</a>
+	            <ul class="collapse list-unstyled" id="changeImage">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                      <form class="" id="" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" style="color: white;">
+                        <div class="input-group mb-3 custom-input-group">
+                          <input name="file" type="file" class="form-control" id="inputGroupFile04" accept="image/*,video/*" style="background-color: #f8b739; color: black;">
+                          <label style="background-color: white; color:#f8b739;" class="input-group-text" for="inputGroupFile02">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Upload</button>
+                          </label>
+                        </div>
+                      </form>
+                    </div>
+                </li>
+	            </ul>
+	          </li>
+	        </ul>
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5" style="overflow-y:auto;">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+            <div class="container-fluid">
+            <div class="container">
+                <div class="container">
+                    <div class="row" style="color: black;">
+                        <div class="col-lg-6">
+                            <h3>Before</h3>
+                            <video class="img-fluid" controls>
+                                <source src="../static/videos/video_now.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>After</h3>
+                            <video class="img-fluid" controls preload="auto">
+                                <source src="{{ url_for('get_video_result') }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>                 
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/main.js"></script>
+{% endblock %}

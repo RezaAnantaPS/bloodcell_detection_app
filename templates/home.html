@@ -6,7 +6,7 @@
         <h5 class="mb-5" style="color: white;">Aplikasi ini akan menerima citra yang Anda upload, kemudian Anda dapat mengolahnya dengan berbagai fungsi yang ada pada pengolahan citra.</h5>
         <form class="mt-5" id="" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" style="color: white; width: 50rem;">
           <div class="input-group mb-3 custom-input-group">
-            <input name="file" type="file" class="form-control" id="inputGroupFile04" accept="image/*" style="height: 3rem; background-color: #f8b739; color: black;">
+            <input name="file" type="file" class="form-control" id="inputGroupFile04" accept="image/*,video/*" style="height: 3rem; background-color: #f8b739; color: black;">
             <label style="background-color: white; color:#f8b739;" class="input-group-text" for="inputGroupFile02">
               <button type="submit" class="btn btn-borderless" style="height: 2rem;">Upload</button>
             </label>

@@ -5,13 +5,30 @@
 		  		<a href="/" class="img logo rounded-circle mb-5 align-items-center" style="width: 200px; height: 200px; background-image: url(../static/images/logo\(1\).png);"></a>
 	        <ul class="list-unstyled components mb-5" style="width: 220px;">
 	          <li>
-	            <a href="#umumSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Bloodcell</a>
-	            <ul class="collapse list-unstyled" id="umumSubmenu">
+	            <a href="#detection" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Bloodcell</a>
+	            <ul class="collapse list-unstyled" id="detection">
                 <li>
                     <div class="icon-box p-2 flex-fill bd-highlight">
                         <form id="" action="{{ url_for('detection_yolo') }}" method="POST" enctype="multipart/form-data">
                             <button type="submit" class="ctb-btn" style="width: 200px;">Detection</button>
                         </form>
+                    </div>
+                </li>
+	            </ul>
+	          </li>
+	          <li>
+	            <a href="#changeImage" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Change Image / Video</a>
+	            <ul class="collapse list-unstyled" id="changeImage">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                      <form class="" id="" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" style="color: white;">
+                        <div class="input-group mb-3 custom-input-group">
+                          <input name="file" type="file" class="form-control" id="inputGroupFile04" accept="image/*,video/*" style="background-color: #f8b739; color: black;">
+                          <label style="background-color: white; color:#f8b739;" class="input-group-text" for="inputGroupFile02">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Upload</button>
+                          </label>
+                        </div>
+                      </form>
                     </div>
                 </li>
 	            </ul>
