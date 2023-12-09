@@ -1,0 +1,490 @@
+{% extends "layout.html" %} {% block body %}
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="container-fluid" style="width: 50rem; padding-right: 50px;">
+				<div class="p-4 pt-5" >
+		  		<a href="/" class="img logo rounded-circle mb-5 align-items-center" style="width: 200px; height: 200px; background-image: url(../static/images/logo\(1\).png);"></a>
+	        <ul class="list-unstyled components mb-5" style="width: 220px;">
+	          <li>
+	            <a href="#umumSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Umum</a>
+	            <ul class="collapse list-unstyled" id="umumSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('normal') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Normal</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('grayscale') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Grayscale</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('zoomin') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Zoom In</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                  <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('zoomout') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Zoom Out</button>
+                        </form>
+                    </div>
+                </li>
+	            </ul>
+	          </li>
+	          <li>
+	            <a href="#geserSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pergeseran</a>
+	            <ul class="collapse list-unstyled" id="geserSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('move_left') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Geser Kiri</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('move_right') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Geser Kanan</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('move_up') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Geser Atas</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('move_down') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Geser Bawah</button>
+                        </form>
+                    </div>
+                </li>
+	            </ul>
+	          </li>
+	          <li>
+              <a href="#terangSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Penerangan</a>
+              <ul class="collapse list-unstyled" id="terangSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('brightness_multiplication') }}" method="POST"
+                            enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Terang (*)</button>
+                        </form>
+                    </div>
+                </li>
+                  <div class="icon-box p-2 flex-fill bd-highlight">
+                      <form id="" action="{{ url_for('brightness_division') }}" method="POST"
+                          enctype="multipart/form-data">
+                          <button type="submit" class="ctb-btn" style="width: 200px;">Gelap (/)</button>
+                      </form>
+                  </div>
+                <li>
+                  <div class="icon-box p-2 flex-fill bd-highlight">
+                      <form id="" action="{{ url_for('brightness_addition') }}" method="POST"
+                          enctype="multipart/form-data">
+                          <button type="submit" class="ctb-btn" style="width: 200px;">Terang (+)</button>
+                      </form>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon-box p-2 flex-fill bd-highlight">
+                      <form id="" action="{{ url_for('brightness_substraction') }}" method="POST"
+                          enctype="multipart/form-data">
+                          <button type="submit" class="ctb-btn" style="width: 200px;">Gelap (-)</button>
+                      </form>
+                  </div>
+                </li>
+              </ul>
+	          </li>
+	          <li>
+              <a href="#analisisSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Analisis Gambar</a>
+              <ul class="collapse list-unstyled" id="analisisSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('histogram_rgb') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Histogram</button>
+                        </form>
+                    </div>
+                </li>
+              </ul>
+	          </li>
+	          <li>
+              <a href="#prosesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pemrosesan Gambar</a>
+              <ul class="collapse list-unstyled" id="prosesSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('histogram_equalizer') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Histogram Equalizer</button>
+                        </form>
+                    </div>
+                </li>
+              </ul>
+	          </li>
+	          <li>
+              <a href="#filterSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Filter Gambar</a>
+              <ul class="collapse list-unstyled" id="filterSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('edge_detection') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Edge Detection</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('blur') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Blur</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('sharpening') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Sharpening</button>
+                        </form>
+                    </div>
+                </li>
+              </ul>
+	          </li>
+            <li>
+              <a href="#segmenSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Segmentation</a>
+              <ul class="collapse list-unstyled" id="segmenSubmenu">
+                <li>
+                    <div class="icon-box p-2 bd-highlight">
+                      <form id="threshold-form" action="{{ url_for('thresholding') }}" method="POST" enctype="multipart/form-data">
+                          <table class="table" style="width: 100%;">
+                              <thead>
+                                  <tr style="color: white;">
+                                      <th>Batas Bawah</th>
+                                      <th>Batas Atas</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td><input type="number" name="lower_thres" placeholder="0-255" min="0" max="255"></td>
+                                      <td><input type="number" name="upper_thres" placeholder="0-255" min="0" max="255"></td>
+                                  </tr>
+                                  <tr>
+                                      <td colspan="2" style="text-align: center;"><button type="submit" class="ctb-btn" style="width: 200px;">Thresholding</button></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </form>
+                  </div>
+                </li>
+              </ul>
+	          </li>
+            <li>
+              <a href="#cropSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Crop Image</a>
+              <ul class="collapse list-unstyled" id="cropSubmenu">
+                <li>
+                    <div class="icon-box p-2 bd-highlight">
+                        <form id="threshold-form" action="{{ url_for('show_crop_image') }}" method="POST" enctype="multipart/form-data">
+                            <table class="table" style="width: 100%;">
+                                <thead>
+                                    <tr style="color: white; text-align: center;">
+                                        <th >Crop</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="center"><input type="number" id="angka" name="crop_piece" min="0" max="100" step="1" ></td>
+                                    </tr>
+                                    <tr>
+                                        <td ><button type="submit" class="ctb-btn" style="width: 200px;">Crop</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 bd-highlight">
+                        <form id="threshold-form" action="{{ url_for('show_random_image') }}" method="POST" enctype="multipart/form-data">
+                            <table class="table" style="width: 100%;">
+                                <thead>
+                                    <tr style="color: white; text-align: center;">
+                                        <th >Random Crop</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="center"><input type="number" id="angka" name="crop_piece" min="0" max="100" step="1" ></td>
+                                    </tr>
+                                    <tr>
+                                        <td ><button type="submit" class="ctb-btn" style="width: 200px;">Crop</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </li>
+              </ul>
+	          </li>
+            <li>
+              <a href="#nilaiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Nilai RGB</a>
+              <ul class="collapse list-unstyled" id="nilaiSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('rgb_value') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">RGB Value</button>
+                        </form>
+                    </div>
+                </li>
+              </ul>
+	          </li>
+	          <li>
+              <a href="#spasialSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Filter Spasial</a>
+              <ul class="collapse list-unstyled" id="spasialSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight" style="width: 30rem;">
+                        <form id="" action="{{ url_for('identity') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Identity</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                  <div class="icon-box p-2 flex-fill bd-highlight" style="width: 30rem;">
+                      <form id="" action="{{ url_for('bilateral') }}" method="POST" enctype="multipart/form-data">
+                          <button type="submit" class="ctb-btn" style="width: 200px;">Bilateral</button>
+                      </form>
+                  </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 bd-highlight" style="margin-top: 30px;">
+                        <form id="blur-form" action="{{ url_for('blur_2') }}" method="POST" enctype="multipart/form-data">
+                            <table class="table" style="width: 100%;">
+                                <thead>
+                                    <tr style="color: white; text-align: center;">
+                                        <th >Blur</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="center"><input type="number" name="kernel" placeholder="Masukan Nilai Kernel"></td>
+                                    </tr>
+                                    <tr>
+                                        <td ><button type="submit" class="ctb-btn" style="width: 200px;">Blur</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 bd-highlight">
+                        <form id="blur-form" action="{{ url_for('cv_blur') }}" method="POST" enctype="multipart/form-data">
+                            <table class="table" style="width: 100%;">
+                                <thead>
+                                    <tr style="color: white; text-align: center;">
+                                        <th >Cv Blur</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="center"><input type="number" name="kernel" placeholder="Masukan Nilai Kernel"></td>
+                                    </tr>
+                                    <tr>
+                                        <td ><button type="submit" class="ctb-btn" style="width: 200px;">Blur</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 bd-highlight">
+                        <form id="blur-form" action="{{ url_for('gaussian_blur') }}" method="POST" enctype="multipart/form-data">
+                            <table class="table" style="width: 100%;">
+                                <thead>
+                                    <tr style="color: white; text-align: center;">
+                                        <th>Gaussian Blur</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="center"><input type="number" name="kernel" placeholder="Masukan Nilai Kernel"></td>
+                                    </tr>
+                                    <tr>
+                                        <td ><button type="submit" class="ctb-btn" style="width: 200px;">Blur</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 bd-highlight">
+                        <form id="blur-form" action="{{ url_for('median_blur') }}" method="POST" enctype="multipart/form-data">
+                            <table class="table" style="width: 100%;">
+                                <thead>
+                                    <tr style="color: white; text-align: center;">
+                                        <th>Median Blur</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="center"><input type="number" name="kernel" placeholder="Masukan Nilai Kernel"></td>
+                                    </tr>
+                                    <tr>
+                                        <td ><button type="submit" class="ctb-btn" style="width: 200px;">Blur</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 bd-highlight">
+                        <form id="blur-form" action="{{ url_for('lowFilterPass') }}" method="POST" enctype="multipart/form-data">
+                            <table class="table" style="width: 100%;">
+                                <thead>
+                                    <tr style="color: white; text-align: center;">
+                                        <th>Lowpass Filter</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td align="center"><input type="number" name="kernel" placeholder="Masukan Nilai Kernel"></td>
+                                    </tr>
+                                    <tr>
+                                        <td ><button type="submit" class="ctb-btn" style="width: 200px;">Lowpass Filter</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                  <div class="icon-box p-2 flex-fill bd-highlight" style="width: 30rem;">
+                      <form id="" action="{{ url_for('sharp') }}" method="POST" enctype="multipart/form-data">
+                          <button type="submit" class="ctb-btn" style="width: 200px;">Sharp</button>
+                      </form>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon-box p-2 flex-fill bd-highlight" style="width: 30rem;">
+                      <form id="" action="{{ url_for('zero_padding') }}" method="POST" enctype="multipart/form-data">
+                          <button type="submit" class="ctb-btn" style="width: 200px;">Zero Padding</button>
+                      </form>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon-box p-2 flex-fill bd-highlight" style="width: 30rem;">
+                      <form id="" action="{{ url_for('highFilterPass') }}" method="POST" enctype="multipart/form-data">
+                          <button type="submit" class="ctb-btn" style="width: 200px;">Highpass Filter</button>
+                      </form>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon-box p-2 flex-fill bd-highlight" style="width: 30rem;">
+                      <form id="" action="{{ url_for('bandFilterPass') }}" method="POST" enctype="multipart/form-data">
+                          <button type="submit" class="ctb-btn" style="width: 200px;">Bandpass Filter</button>
+                      </form>
+                  </div>
+                </li>
+              </ul>
+	          </li>
+              <li>
+              <a href="#gameSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Game</a>
+              <ul class="collapse list-unstyled" id="gameSubmenu">
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('memory_game') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Memory Game</button>
+                        </form>
+                    </div>
+                </li>
+              </ul>
+	          </li>
+	        </ul>
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5" style="overflow-y:auto;">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+            <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card" style="background-color: #f8b739; color: #1d1919;">
+                                <center>
+                                    <div class="header mt-4">
+                                        <h3 class="title">Memory Game</h3>
+                                    </div>
+                                </center>
+                                <div class="content">
+                                    <center>
+                                        <h3>Score: <span id="score">0</span></h3>
+                                        <button id="hintButton">Hint</button>
+                                        <button id="surrenderButton">Surrender</button>
+                                        <button id="restartButton">Restart</button>
+                                    </center>
+
+                                    <div class="row">
+                                        {% for photo in photos %}
+                                        <div class="col-md-3" onclick="flipImage(this)" data-ori="/static/img/card.jpg" data-new-image="{{ photo_folder }}/{{ photo.filename }}">
+                                            <img class="game-img" id="{{ photo.filename }}"
+                                                src="static/img/card.jpg" alt="Random Photo"
+                                                style="height: 200px; width: 250px; margin: 30px;">
+                                            <p style="display: none; text-align: center;">{{ photo.filename }}</p>
+                                        </div>
+                                        {% endfor %}
+
+                                        {% for photo in photos %}
+                                        <div class="col-md-3" onclick="flipImage(this)" data-ori="/static/img/card.jpg" data-new-image="{{ photo_folder }}/{{ photo.filename }}">
+                                            <img class="game-img" id="{{ photo.filename }}"
+                                                src="static/img/card.jpg" alt="Random Photo"
+                                                style="height: 200px; width: 250px; margin: 30px;">
+                                            <p style="display: none; text-align: center;">{{ photo.filename }}</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/main.js"></script>
+<script src="/static/js/game.js"></script>
+{% endblock %}

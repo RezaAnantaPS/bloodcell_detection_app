@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block body %}
+<section id="hero" class="d-flex align-items-center justify-content-center" style="background-image: url(/static/images/bg.jpg); background-size: cover; background-position: center; height: 100vh;">  
+  <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+        <img style="border-radius: 50%; height: 28rem; width: 30rem;" src="../static/images/logo(1).png" alt="PCD">
+        <h5 class="mb-5" style="color: white;">Aplikasi ini akan menerima citra yang Anda upload, kemudian Anda dapat mengolahnya dengan berbagai fungsi yang ada pada pengolahan citra.</h5>
+        <form class="mt-5" id="" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" style="color: white; width: 50rem;">
+          <div class="input-group mb-3 custom-input-group">
+            <input name="file" type="file" class="form-control" id="inputGroupFile04" accept="image/*" style="height: 3rem; background-color: #f8b739; color: black;">
+            <label style="background-color: white; color:#f8b739;" class="input-group-text" for="inputGroupFile02">
+              <button type="submit" class="btn btn-borderless" style="height: 2rem;">Upload</button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+</section>
+{% endblock %}
