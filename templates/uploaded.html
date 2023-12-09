@@ -10,7 +10,14 @@
                 <li>
                     <div class="icon-box p-2 flex-fill bd-highlight">
                         <form id="" action="{{ url_for('detection_yolo') }}" method="POST" enctype="multipart/form-data">
-                            <button type="submit" class="ctb-btn" style="width: 200px;">Detection</button>
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Yolov8</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box p-2 flex-fill bd-highlight">
+                        <form id="" action="{{ url_for('detection_detr') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="ctb-btn" style="width: 200px;">Detr</button>
                         </form>
                     </div>
                 </li>
