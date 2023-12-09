@@ -27,7 +27,7 @@ def detection_yolo():
     model.overrides['max_det'] = 1000  # maximum number of detections per image
     results = model.predict(image_path)
     # observe results
-    print(results[0].boxes)
+    print("results[0].boxes: ", results[0].boxes)
     render = render_result(model=model, image=image_path, result=results[0])
     render.save("static/img/img_now.jpg")
 
