@@ -1,2 +1,3 @@
 dataset/
 detr-bloodcell-model/
+__pycache__

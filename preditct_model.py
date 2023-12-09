@@ -11,6 +11,10 @@ from ultralyticsplus import YOLO, render_result
 import cv2
 import numpy as np
 
+# inference
+image_path = "static/img/img_normal.jpg"
+input_video_path = "static/videos/video_now.mp4"
+output_video_path = "static/videos/video_result.mp4"
 
 def detection_yolo():
     # load model
@@ -21,13 +25,6 @@ def detection_yolo():
     model.overrides['iou'] = 0.45  # NMS IoU threshold
     model.overrides['agnostic_nms'] = False  # NMS class-agnostic
     model.overrides['max_det'] = 1000  # maximum number of detections per image
-
-# inference
-image_path = "static/img/img_normal.jpg"
-input_video_path = "static/videos/video_now.mp4"
-output_video_path = "static/videos/video_result.mp4"
-
-def detection_yolo():
     results = model.predict(image_path)
     # observe results
     print(results[0].boxes)
@@ -35,6 +32,15 @@ def detection_yolo():
     render.save("static/img/img_now.jpg")
 
 def detection_yolo_video():
+    # load model
+    model = YOLO("best.pt")
+
+    # set model parameters
+    model.overrides['conf'] = 0.25  # NMS confidence threshold
+    model.overrides['iou'] = 0.45  # NMS IoU threshold
+    model.overrides['agnostic_nms'] = False  # NMS class-agnostic
+    model.overrides['max_det'] = 1000  # maximum number of detections per image
+    
     cap = cv2.VideoCapture(input_video_path)
     fps = cap.get(cv2.CAP_PROP_FPS)
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -63,10 +69,6 @@ def detection_yolo_video():
 
     cap.release()
     out.release()
-
-
-
-
 
 def detection_detr():
     # Check if a GPU is available, and use it if available; otherwise, use CPU.
