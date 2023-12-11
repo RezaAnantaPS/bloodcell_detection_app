@@ -31,6 +31,8 @@ def detection_yolo():
     render = render_result(model=model, image=image_path, result=results[0])
     render.save("static/img/img_now.jpg")
 
+
+
 def detection_yolo_video():
     # load model
     model = YOLO("best.pt")
@@ -46,7 +48,7 @@ def detection_yolo_video():
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    fourcc = cv2.VideoWriter_fourcc(*'H264')
     out = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
 
     while True:
