@@ -10,26 +10,82 @@ import supervision as sv
 from ultralyticsplus import YOLO, render_result
 import cv2
 import numpy as np
+import random
+import math
+from collections import Counter
 
 # inference
 image_path = "static/img/img_normal.jpg"
 input_video_path = "static/videos/video_now.mp4"
 output_video_path = "static/videos/video_result.mp4"
 
+classNames = ['Platelets', 'RBC', "WBC", "sickle cell"]
 def detection_yolo():
+    title = "YOLOv8"
     # load model
     model = YOLO("best.pt")
-
     # set model parameters
     model.overrides['conf'] = 0.25  # NMS confidence threshold
     model.overrides['iou'] = 0.45  # NMS IoU threshold
     model.overrides['agnostic_nms'] = False  # NMS class-agnostic
     model.overrides['max_det'] = 1000  # maximum number of detections per image
-    results = model.predict(image_path)
-    # observe results
-    print("results[0].boxes: ", results[0].boxes)
-    render = render_result(model=model, image=image_path, result=results[0])
-    render.save("static/img/img_now.jpg")
+    
+    array = []
+    counts = Counter()
+    width = int(640)
+    height = int(640)
+    dim = (width, height)
+    img = cv2.imread(image_path)
+    resized = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
+    results = model(resized, show = False)
+    for r in results:
+        boxes = r.boxes
+        for box in boxes:
+            x1, y1, x2, y2 = box.xyxy[0]
+            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+            #print(x1, y1, x2, y2)
+
+            color1 = random.randrange(128, 255)
+            color2 = random.randrange(128, 255)
+            color3 = random.randrange(128, 255)
+
+            # Draw filled rectangle as background for text
+            cv2.rectangle(resized, (max(0, x1), max(35, y1) - 25), (x2, y1), (color1, color2, color3), -1)
+            
+            # Draw bounding box
+            cv2.rectangle(resized,(x1,y1),(x2,y2),(color1,color2, color3),3)
+
+            conf = math.ceil((box.conf[0]*100))/100
+
+            cls = int(box.cls[0])
+
+            cv2.putText(img=resized, text=f'{classNames[cls]} {conf}', org=(max(0, x1), max(35, y1) - 5),
+                fontFace=cv2.FONT_HERSHEY_DUPLEX, fontScale=0.5, color=(0, 0, 0), thickness=2)
+            array.append(classNames[cls])
+            counts[classNames[cls]] += 1
+    print(array)
+    
+    for label, count in counts.items():
+        print(f'{label} = {count}')
+    
+    cv2.imwrite("static/img/img_now.jpg", resized)
+    return counts, title
+    
+
+# def detection_yolo():
+#     # load model
+#     model = YOLO("best.pt")
+
+#     # set model parameters
+#     model.overrides['conf'] = 0.25  # NMS confidence threshold
+#     model.overrides['iou'] = 0.45  # NMS IoU threshold
+#     model.overrides['agnostic_nms'] = False  # NMS class-agnostic
+#     model.overrides['max_det'] = 1000  # maximum number of detections per image
+#     results = model.predict(image_path)
+#     # observe results
+#     print("results[0].boxes: ", results[0].boxes)
+#     render = render_result(model=model, image=image_path, result=results[0])
+#     render.save("static/img/img_now.jpg")
 
 
 

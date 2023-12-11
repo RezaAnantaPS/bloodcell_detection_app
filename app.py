@@ -57,8 +57,8 @@ def add_header(r):
 @app.route("/detection-yolo", methods=["POST"])
 @nocache
 def detection_yolo():
-    preditct_model.detection_yolo()
-    return render_template("uploaded.html", file_path="img/img_now.jpg")
+    counts, title = preditct_model.detection_yolo()
+    return render_template("uploaded.html", file_path="img/img_now.jpg", counts=counts, title=title)
 
 ALLOWED_IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 ALLOWED_VIDEO_EXTENSIONS = {'mp4', 'avi', 'mkv', 'mov'}
