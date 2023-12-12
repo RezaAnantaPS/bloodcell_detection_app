@@ -2,7 +2,7 @@
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="container-fluid" style="width: 50rem; padding-right: 50px;">
 				<div class="p-4 pt-5" >
-		  		<a href="/" class="img logo rounded-circle mb-5 align-items-center" style="width: 200px; height: 200px; background-image: url(../static/images/logo\(1\).png);"></a>
+		  		<a href="/" class="img logo mb-5 align-items-center" style="width: 200px; background-image: url(../static/images/logo.png);"></a>
 	        <ul class="list-unstyled components mb-5" style="width: 220px;">
 	          <li>
 	            <a href="#changeImage" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Change Image / Video</a>
@@ -44,9 +44,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
               </ul>
             </div>
           </div>
@@ -64,8 +61,8 @@
                         </div>
                         <div class="col-lg-6">
                             <h3>After</h3>
-                            <video class="img-fluid" controls preload="auto">
-                                <source src="{{ url_for('get_video_result') }}" type="video/mp4">
+                            <video class="img-fluid" controls>
+                                <source src="../static/videos/video_result.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>                 
                         </div>

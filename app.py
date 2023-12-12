@@ -119,8 +119,8 @@ def get_video_result():
 @app.route("/detection-detr", methods=["POST"])
 @nocache
 def detection_detr():
-    preditct_model.detection_detr()
-    return render_template("uploaded.html", file_path="img/img_now.jpg")
+    counts, title = preditct_model.detection_detr()
+    return render_template("uploaded.html", file_path="img/img_now.jpg", counts=counts, title=title)
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")

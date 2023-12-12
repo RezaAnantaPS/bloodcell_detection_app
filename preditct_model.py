@@ -191,7 +191,7 @@ def detection_detr():
     box_annotator = sv.BoxAnnotator()
 
     image = cv2.imread("static/img/img_normal.jpg")
-
+    
     # inference
     with torch.no_grad():
 
@@ -214,15 +214,21 @@ def detection_detr():
 
     cv2.imwrite("static/img/img_now.jpg",frame)
     
+    title = "DETR"
     # Create a dictionary to store the counts
-    terdeteksi = {}
+    counts = {}
 
     # Iterate through labels and count occurrences
     for label in labels:
         class_name = label.split()[0]  # Extract the class name (e.g., 'WBC' or 'RBC')
-        if class_name in terdeteksi:
-            terdeteksi[class_name] += 1
+        if class_name in counts:
+            counts[class_name] += 1
         else:
-            terdeteksi[class_name] = 1
+            counts[class_name] = 1
 
-    print(terdeteksi)
+    print(counts)
+    for key, value in counts.items():
+        if key == "sickle":
+            key = "sickle cell"
+        print(f"{key} : {value}")
+    return counts, title

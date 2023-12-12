@@ -2,7 +2,7 @@
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="container-fluid" style="width: 50rem; padding-right: 50px;">
 				<div class="p-4 pt-5" >
-		  		<a href="/" class="img logo rounded-circle mb-5 align-items-center" style="width: 200px; height: 200px; background-image: url(../static/images/logo\(1\).png);"></a>
+		  		<a href="/" class="img logo mb-5 align-items-center" style="width: 200px; background-image: url(../static/images/logo.png);"></a>
 	        <ul class="list-unstyled components mb-5" style="width: 220px;">
 	          <li>
 	            <a href="#detection" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Bloodcell</a>
@@ -76,30 +76,36 @@
                     <div class="row" style="color: black;">
                         <div class="col-lg-6">
                             <h3>Before</h3>
-                            <img class="img-fluid" src="../static/img/img_normal.jpg" alt="image here">
+                            <img class="img-fluid" style="width: 416px;" src="../static/img/img_normal.jpg" alt="image here">
                         </div>
                         <div class="col-lg-6">
                             <h3>After</h3>
-                            <img class="img-fluid" src="../static/img/img_now.jpg" alt="image here">                      
+                            <img class="img-fluid" style="width: 416px;" src="../static/img/img_now.jpg" alt="image here">                      
                         </div>
                     </div>
-                    {% if counts %}
-                      <h4>Detection Counts</h4>
-                      <ul>
-                          {% for label, count in counts.items() %}
-                              <li>{{ label }}: {{ count }}</li>
-                          {% endfor %}
-                      </ul>
-
-                      <h4>Result</h4>
-                      {% if 'sickle cell' in counts %}
-                        <p>Sickle Cell Anemia Identified!</p>
-                      {% else %}
-                        <p>No Sickle Cell Anemia Detected</p>
-                      {% endif %}
-                    {% endif %}
-                    </div>
-                </div>
+                      <div class="row mt-3">
+                        <div class="col-lg-6">
+                          {% if counts %}
+                              <h4>Detection Counts</h4>
+                              <ul>
+                                  {% for label, count in counts.items() %}
+                                      {% if label == "sickle" %}
+                                          <li>sickle cell: {{ count }}</li>
+                                      {% else %}
+                                          <li>{{ label }}: {{ count }}</li>
+                                      {% endif %}
+                                  {% endfor %}
+                              </ul>
+  
+                              <h4>Result</h4>
+                              {% if 'sickle' in counts or 'sickle cell' in counts %}
+                                  <p>Sickle Cell Anemia Identified!</p>
+                              {% else %}
+                                  <p>No Sickle Cell Anemia Detected</p>
+                              {% endif %}
+                          {% endif %}
+                        </div>
+                      </div>
             </div>
         </div>
     </div>
